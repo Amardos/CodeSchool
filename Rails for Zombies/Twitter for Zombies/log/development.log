@@ -1,0 +1,270 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (3.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateZombies (20141106212124)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "zombies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "bio" text, "age" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20141106212124')[0m
+  [1m[35m (4.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-11-07 08:27:51 +1100
+Connecting to database specified by database.yml
+Served asset /rails.png - 304 Not Modified (19ms)
+
+
+Started GET "/zombies" for 127.0.0.1 at 2014-11-07 08:27:55 +1100
+Processing by ZombiesController#index as HTML
+  [1m[36mZombie Load (0.0ms)[0m  [1mSELECT "zombies".* FROM "zombies" [0m
+  Rendered zombies/index.html.erb within layouts/application (3.0ms)
+Warning. Error encountered while saving cache C:/Workspace/Ruby/TwitterForZombies/tmp/cache/sass/daea9cbda48559c5219112352870ba960f3afe5d/scaffolds.css.scssc: can't dump anonymous class #<Class:0x27cd1d0>
+Compiled scaffolds.css  (7ms)  (pid 6996)
+Warning. Error encountered while saving cache C:/Workspace/Ruby/TwitterForZombies/tmp/cache/sass/daea9cbda48559c5219112352870ba960f3afe5d/zombies.css.scssc: can't dump anonymous class #<Class:0x27cd1d0>
+Compiled zombies.css  (1ms)  (pid 6996)
+Compiled application.css  (57ms)  (pid 6996)
+Compiled jquery.js  (1ms)  (pid 6996)
+Compiled jquery_ujs.js  (1ms)  (pid 6996)
+Compiled zombies.js  (485ms)  (pid 6996)
+Compiled application.js  (563ms)  (pid 6996)
+Completed 200 OK in 698.7ms (Views: 670.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/zombies.css?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /zombies.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/zombies.js?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /zombies.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-07 08:27:56 +1100
+Served asset /application.js - 200 OK (18ms)
+
+
+Started GET "/zombies/new" for 127.0.0.1 at 2014-11-07 08:28:10 +1100
+Processing by ZombiesController#new as HTML
+  Rendered zombies/_form.html.erb (6.0ms)
+  Rendered zombies/new.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 28.4ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/zombies" for 127.0.0.1 at 2014-11-07 08:28:22 +1100
+Processing by ZombiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ovwDLA8++EEEs+FY+Pu4kLnWrhZExp/4LVGSGEFR/lU=", "zombie"=>{"name"=>"Bob", "bio"=>"This is Bob. He died of ebola.", "age"=>"193"}, "commit"=>"Create Zombie"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "zombies" ("age", "bio", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["age", 193], ["bio", "This is Bob. He died of ebola."], ["created_at", Thu, 06 Nov 2014 21:28:23 UTC +00:00], ["name", "Bob"], ["updated_at", Thu, 06 Nov 2014 21:28:23 UTC +00:00]]
+  [1m[35m (4.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/zombies/1
+Completed 302 Found in 12.0ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/zombies/1" for 127.0.0.1 at 2014-11-07 08:28:23 +1100
+Processing by ZombiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mZombie Load (1.0ms)[0m  [1mSELECT "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered zombies/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6.0ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/zombies" for 127.0.0.1 at 2014-11-07 08:28:25 +1100
+Processing by ZombiesController#index as HTML
+  [1m[35mZombie Load (0.0ms)[0m  SELECT "zombies".* FROM "zombies" 
+  Rendered zombies/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4.0ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/zombies/1" for 127.0.0.1 at 2014-11-07 08:32:23 +1100
+Processing by ZombiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mZombie Load (1.0ms)[0m  [1mSELECT "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered zombies/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9.0ms (Views: 8.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:23 +1100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:23 +1100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:24 +1100
+Served asset /zombies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:24 +1100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:24 +1100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:24 +1100
+Served asset /zombies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:24 +1100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/zombies" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Processing by ZombiesController#index as HTML
+  [1m[35mZombie Load (0.0ms)[0m  SELECT "zombies".* FROM "zombies" 
+  Rendered zombies/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4.0ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Served asset /zombies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:27 +1100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:28 +1100
+Served asset /zombies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:28 +1100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/zombies/1/edit" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Processing by ZombiesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mZombie Load (0.0ms)[0m  [1mSELECT "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered zombies/_form.html.erb (2.0ms)
+  Rendered zombies/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 7.0ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /zombies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/zombies.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /zombies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:30 +1100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/zombies" for 127.0.0.1 at 2014-11-07 08:32:32 +1100
+Processing by ZombiesController#index as HTML
+  [1m[35mZombie Load (1.0ms)[0m  SELECT "zombies".* FROM "zombies" 
+  Rendered zombies/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9.0ms (Views: 8.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.css?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /zombies.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/zombies.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /zombies.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-07 08:32:33 +1100
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateZombies (20141106212124)
+Migrating to AddEmailAndRottingToZombies (20141106213618)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "zombies" ADD "email" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mALTER TABLE "zombies" ADD "rotting" boolean[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20141106213618')
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateZombies (20141106212124)
+Migrating to AddEmailAndRottingToZombies (20141106213618)
+Migrating to RemoveAgeFromZombies (20141106213906)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "altered_zombies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "bio" text, "age" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255), "rotting" boolean) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "zombies"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_zombies" ("id","name","bio","age","created_at","updated_at","email","rotting") VALUES (1, 'Bob', 'This is Bob. He died of ebola.', 193, '2014-11-06 21:28:23.002422', '2014-11-06 21:28:23.002422', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_zombies" ("id","name","bio","age","created_at","updated_at","email","rotting") VALUES (2, 'Sean Martin', NULL, 25, '2014-11-06 21:33:16.641079', '2014-11-06 21:33:16.641079', NULL, NULL)[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "zombies"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "zombies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "bio" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255), "rotting" boolean) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_zombies"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "zombies" ("id","name","bio","created_at","updated_at","email","rotting") VALUES (1, 'Bob', 'This is Bob. He died of ebola.', '2014-11-06 21:28:23.002422', '2014-11-06 21:28:23.002422', NULL, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "zombies" ("id","name","bio","created_at","updated_at","email","rotting") VALUES (2, 'Sean Martin', NULL, '2014-11-06 21:33:16.641079', '2014-11-06 21:33:16.641079', NULL, NULL)
+  [1m[36m (7.0ms)[0m  [1mDROP TABLE "altered_zombies"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20141106213906')
+  [1m[36m (6.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
